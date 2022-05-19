@@ -1,20 +1,15 @@
-import { AspectRatio, Box, Flex, Center, Container } from '@chakra-ui/react'
 import type { NextPage } from 'next'
-import Image from 'next/image'
-import emotionPic from '../public/emotionScreen.png'
+import { projects } from '../Data/ projects'
+import CardList from '../Components/CardList'
+import BorderLine from '../Components/OpeningAnimation'
+import { Suspense } from 'react'
 const Home: NextPage = () => {
 	return (
 		<>
-			<Center
-				justifySelf={'center'}
-				w={'100%'}
-				p={6}
-				bgGradient={'linear(to-tr, #011627, gray.400)'}
-			>
-				<Box rounded={'2xl'}>
-					<Image alt="CBTree screenshot" src={emotionPic} />
-				</Box>
-			</Center>
+			<Suspense fallback={<></>}>
+				<BorderLine />
+				<CardList projects={projects} />
+			</Suspense>
 		</>
 	)
 }
