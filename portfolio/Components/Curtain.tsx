@@ -12,7 +12,7 @@ const Curtain: React.FC<Props> = ({ lineDone, innerHeight, innerWidth }) => {
 					lineDone
 						? {
 								right: ['0%', '100%'],
-								transition: { ease: 'easeOut', duration: 3 },
+								transition: { ease: 'easeOut', duration: 2 },
 						  }
 						: undefined
 				}
@@ -22,9 +22,9 @@ const Curtain: React.FC<Props> = ({ lineDone, innerHeight, innerWidth }) => {
 					position: 'fixed',
 					clipPath:
 						'polygon(50% 50%, 25% 75%, 50% 100%, 0% 100%, 0 0, 50% 0, 75% 25%)',
-					width: innerWidth,
-					height: innerHeight,
-					opacity: 0.95,
+					width: window.innerWidth,
+					height: window.innerHeight,
+					opacity: 0.9,
 					backgroundColor: '#1A202C',
 				}}
 			></motion.div>
@@ -33,7 +33,7 @@ const Curtain: React.FC<Props> = ({ lineDone, innerHeight, innerWidth }) => {
 					lineDone
 						? {
 								left: ['0%', '100%'],
-								transition: { ease: 'easeOut', duration: 3 },
+								transition: { ease: 'easeOut', duration: 2 },
 						  }
 						: undefined
 				}
@@ -41,7 +41,7 @@ const Curtain: React.FC<Props> = ({ lineDone, innerHeight, innerWidth }) => {
 					zIndex: 10,
 					overflow: 'hidden',
 					position: 'fixed',
-					opacity: 0.95,
+					opacity: 0.9,
 					clipPath:
 						'polygon(50% 100%, 25% 75%, 50% 50%, 75% 25%, 50% 0, 100% 0, 100% 100%)',
 					width: innerWidth,

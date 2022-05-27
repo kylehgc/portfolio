@@ -1,22 +1,26 @@
 import type { NextPage } from 'next'
-import { projects } from '../Data/ projects'
+import { projectCards } from '../Data/projects'
 import CardList from '../Components/CardList'
 import BorderLine from '../Components/OpeningAnimation'
 import { useEffect, useState } from 'react'
+import { quoteBattlerProject, cbtreeProject } from '../Data/projects'
+import Project from '../Components/Project'
+import { Center } from '@chakra-ui/react'
+
 const Home: NextPage = () => {
 	const [innerHeight, setInnerHeight] = useState<number>()
 	const [innerWidth, setInnerWidth] = useState<number>()
 	useEffect(() => {
-		if (typeof window !== undefined) {
-			setInnerHeight(window.innerHeight)
-			setInnerWidth(window.innerWidth)
-		}
+		setInnerHeight(window.innerHeight)
+		setInnerWidth(window.innerWidth)
 	}, [])
 	if (innerHeight && innerWidth) {
 		return (
 			<>
 				<BorderLine innerHeight={innerHeight} innerWidth={innerWidth} />
-				<CardList projects={projects} />
+				<Center flexDir={'column'}>
+					<CardList projects={projectCards} />
+				</Center>
 			</>
 		)
 	}

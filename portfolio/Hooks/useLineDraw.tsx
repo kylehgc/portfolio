@@ -10,8 +10,6 @@ const useLineDraw = (
 	lineSegments: LineSegment[] | undefined,
 	lineTime: number,
 ) => {
-	const [innerHeight, setInnerHeight] = useState(0)
-	const intervalID = useRef<NodeJS.Timer>()
 	const [lineDone, setLineDone] = useState(false)
 	const canvasRef = useRef<HTMLCanvasElement>(null)
 	const runningAnimations = useRef<number>()
@@ -20,7 +18,7 @@ const useLineDraw = (
 		canvas.beginPath()
 		canvas.moveTo(...starting)
 		canvas.lineTo(...ending)
-		canvas.strokeStyle = '#9AE6B4'
+		canvas.strokeStyle = '#BEE3F8'
 		canvas.lineWidth = 4
 		canvas.stroke()
 	}
@@ -32,7 +30,7 @@ const useLineDraw = (
 			lineDelay: number,
 		) => {
 			const { starting, ending } = lineSegment
-
+			const frames = (lineTime / 1000) * 60
 			let currentPosition = starting
 			let count = 0
 
@@ -40,11 +38,11 @@ const useLineDraw = (
 				ending[0] - starting[0],
 				ending[1] - starting[1],
 			]
-			if (runningAnimations.current === undefined) {
-				runningAnimations.current = 0
-			}
-			while (count < 60) {
-				if (typeof runningAnimations.current === 'number') {
+
+			while (count < frames) {
+				if (runningAnimations.current === undefined) {
+					runningAnimations.current = 1
+				} else {
 					runningAnimations.current++
 				}
 				setTimeout(() => {
@@ -53,47 +51,43 @@ const useLineDraw = (
 							{
 								starting: currentPosition,
 								ending: [
-									currentPosition[0] + difference[0] / 60,
-									currentPosition[1] + difference[1] / 60,
+									currentPosition[0] + difference[0] / frames,
+									currentPosition[1] + difference[1] / frames,
 								],
 							},
 							canvas,
 						),
 							(currentPosition = [
-								currentPosition[0] + difference[0] / 60,
-								currentPosition[1] + difference[1] / 60,
+								currentPosition[0] + difference[0] / frames,
+								currentPosition[1] + difference[1] / frames,
 							])
 						if (runningAnimations.current) {
 							runningAnimations.current--
+							if (runningAnimations.current === 0) {
+								setLineDone(true)
+							}
 						}
 					})
-				}, (lineTime / 60) * count + lineDelay)
+				}, (lineTime / frames) * count + lineDelay)
 				count++
 			}
 		},
 		[lineTime],
 	)
-	useEffect(() => {
-		intervalID.current = setInterval(() => {
-			if (runningAnimations.current === 0) {
-				setLineDone(true)
-				const canvas = canvasRef.current?.getContext('2d')
-				if (canvas && canvasRef.current) {
-					canvas.clearRect(
-						0,
-						0,
-						canvasRef.current.width,
-						canvasRef.current.height,
-					)
-				}
-			}
-		}, 100)
 
-		if (lineDone === true) {
-			clearInterval(intervalID.current)
+	useEffect(() => {
+		if (lineDone) {
+			const canvas = canvasRef.current?.getContext('2d')
+			if (canvas && canvasRef.current) {
+				canvas.clearRect(
+					0,
+					0,
+					canvasRef.current.width,
+					canvasRef.current.height,
+				)
+			}
 		}
-		return () => clearInterval(intervalID.current)
-	}, [lineDone, lineTime])
+	}, [lineDone])
 
 	useEffect(() => {
 		const canvas = canvasRef?.current?.getContext('2d')
@@ -104,6 +98,7 @@ const useLineDraw = (
 			})
 		}
 	}, [drawSegment, lineSegments, lineTime])
+
 	return { lineDone, canvasRef }
 }
 

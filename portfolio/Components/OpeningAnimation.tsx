@@ -1,22 +1,13 @@
 import { ReactNode, useRef, useState } from 'react'
 import { useEffect, useCallback } from 'react'
-import { number } from 'yup'
 import useLineDraw from '../Hooks/useLineDraw'
 import Curtain from './Curtain'
-
-// interface Props {
-// 	children: ReactNode
-// }
 
 type InterSection = [number, number]
 
 interface LineSegment {
 	starting: InterSection
 	ending: InterSection
-}
-
-interface AnimationRef {
-	current: LineSegment[]
 }
 
 const getAnimations = (
@@ -44,8 +35,7 @@ interface Props {
 }
 const OpeningAnimation: React.FC<Props> = ({ innerWidth, innerHeight }) => {
 	const [animations, setAnimations] = useState<LineSegment[]>()
-	const { lineDone, canvasRef } = useLineDraw(animations, 300)
-
+	const { lineDone, canvasRef } = useLineDraw(animations, 250)
 	useEffect(() => {
 		setAnimations(getAnimations(innerWidth, innerHeight))
 	}, [innerHeight, innerWidth])
@@ -57,12 +47,14 @@ const OpeningAnimation: React.FC<Props> = ({ innerWidth, innerHeight }) => {
 					innerWidth={innerWidth}
 					lineDone={lineDone}
 				/>
-				<canvas
-					height={innerHeight}
-					width={innerWidth}
-					style={{ position: 'fixed', zIndex: 11 }}
-					ref={canvasRef}
-				/>
+				{lineDone ? null : (
+					<canvas
+						height={innerHeight}
+						width={innerWidth}
+						style={{ position: 'fixed', zIndex: 11 }}
+						ref={canvasRef}
+					/>
+				)}
 			</>
 		)
 	}

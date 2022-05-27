@@ -1,7 +1,4 @@
 import { motion, useElementScroll } from 'framer-motion'
-import { RefObject, useRef } from 'react'
-import { useEffect, useState } from 'react'
-import BorderLine from './OpeningAnimation'
 
 interface Props {
 	children: React.ReactNode

@@ -5,22 +5,26 @@ import {
 	Flex,
 	HStack,
 	VStack,
-	Link,
+	UnorderedList,
+	ListItem,
+	useBreakpointValue,
+	Container,
 } from '@chakra-ui/react'
 import Image from 'next/image'
-import { LinkIcon } from '@chakra-ui/icons'
-import GitHubIcon from '/public/GitHubIcon.png'
 import { CardData } from './../types'
 import { RefObject, useEffect, useRef, useState } from 'react'
 import { useElementScroll, useViewportScroll } from 'framer-motion'
 import { useCallback } from 'react'
+import Link from 'next/link'
 import SpringAnimation from './SpringAnimation'
+import ExternalLinks from './ExternalLinks'
 interface Props {
 	CardData: CardData
 }
 
 const Card: React.FC<Props> = ({
 	CardData: {
+		projectLink,
 		title,
 		description,
 		repositoryURL,
@@ -31,13 +35,15 @@ const Card: React.FC<Props> = ({
 }) => {
 	const cardRef: RefObject<HTMLDivElement> = useRef(null)
 	const { scrollYProgress } = useViewportScroll()
+	const descriptionLength = description.length
+	const pointsToShow = useBreakpointValue({ base: 2, md: descriptionLength })
 	const [inView, setInView] = useState(false)
 	const makeViewable = useCallback(() => {
 		if (cardRef.current) {
+			const bottomViewLine = window.innerHeight * 0.8
+			const topViewLine = window.innerHeight * 0.2
 			const topPosition = cardRef.current.getBoundingClientRect().top
 			const bottomPosition = cardRef.current.getBoundingClientRect().bottom
-			const topViewLine = window.innerHeight * 0.2
-			const bottomViewLine = window.innerHeight * 0.8
 			if (bottomPosition < topViewLine || topPosition > bottomViewLine) {
 				if (inView) {
 					setInView(false)
@@ -60,57 +66,57 @@ const Card: React.FC<Props> = ({
 
 	return (
 		<>
-			<Center>
+			<Center w={{ base: '100%', md: '70%' }}>
 				<SpringAnimation inView={inView}>
-					<HStack
-						ref={cardRef}
-						bgGradient={gradiant}
-						justify={'center'}
-						minH={'380'}
-						width="100%"
-						px={4}
-						spacing={3}
-					>
-						<Flex
-							pb={3}
-							pt={6}
-							flexDir={'column'}
-							justify={'space-between'}
-							align={'flex-start'}
-							minH={'380'}
-							w={'50%'}
+					<Link href={projectLink}>
+						<Container
+							minHeight={'500px'}
+							bgGradient={gradiant}
+							minW={{ base: '100%', md: '400px', lg: '1150px' }}
 						>
-							<VStack>
-								<Heading size={'lg'} w={'full'} color={'whiteAlpha.900'}>
-									{title}
-								</Heading>
-								<Text fontSize={14} color="whiteAlpha.900">
-									{description}
-								</Text>
-							</VStack>
-							<HStack h={'10%'} p={2} mt={2} spacing={6}>
-								<Link href={repositoryURL} h={'24px'} w={'24px'}>
-									<Image
-										objectFit="cover"
-										alt="gitHub button"
-										src={GitHubIcon}
+							<HStack ref={cardRef} justify={'space-around'} px={4}>
+								<Flex
+									pb={3}
+									pt={6}
+									flexDir={'column'}
+									justify={'space-between'}
+									align={'flex-start'}
+									minH={'500px'}
+									w={'50%'}
+								>
+									<VStack spacing={6} minHeight={{ base: 350, md: 500 }} p={2}>
+										<Heading size={'lg'} w={'full'} color={'whiteAlpha.900'}>
+											{title}
+										</Heading>
+										<UnorderedList
+											fontSize={{ base: '16px', md: '18px' }}
+											spacing={8}
+										>
+											{description
+												.slice(0, pointsToShow)
+												.map((descriptionItem, index) => (
+													<ListItem key={index}> {descriptionItem} </ListItem>
+												))}
+										</UnorderedList>
+									</VStack>
+
+									<ExternalLinks
+										externalLinkURL={externalLinkURL}
+										repositoryURL={repositoryURL}
 									/>
-								</Link>
-								<Link href={externalLinkURL}>
-									<LinkIcon color={'white'} boxSize={6} />
-								</Link>
+								</Flex>
+								<Center maxWidth={{ base: 190, md: 300 }}>
+									<Image
+										objectFit="contain"
+										height={'896'}
+										width={'414'}
+										alt="Project Screenshot"
+										src={screenshotSrc}
+									/>
+								</Center>
 							</HStack>
-						</Flex>
-						<Center>
-							<Image
-								objectFit="cover"
-								height={'347'}
-								width={'160'}
-								alt="Project Screenshot"
-								src={screenshotSrc}
-							/>
-						</Center>
-					</HStack>
+						</Container>
+					</Link>
 				</SpringAnimation>
 			</Center>
 		</>
