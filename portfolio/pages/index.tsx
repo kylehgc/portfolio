@@ -2,16 +2,25 @@ import type { NextPage } from 'next'
 import { projects } from '../Data/ projects'
 import CardList from '../Components/CardList'
 import BorderLine from '../Components/OpeningAnimation'
-import { Suspense } from 'react'
+import { useEffect, useState } from 'react'
 const Home: NextPage = () => {
-	return (
-		<>
-			<Suspense fallback={<></>}>
-				<BorderLine />
+	const [innerHeight, setInnerHeight] = useState<number>()
+	const [innerWidth, setInnerWidth] = useState<number>()
+	useEffect(() => {
+		if (typeof window !== undefined) {
+			setInnerHeight(window.innerHeight)
+			setInnerWidth(window.innerWidth)
+		}
+	}, [])
+	if (innerHeight && innerWidth) {
+		return (
+			<>
+				<BorderLine innerHeight={innerHeight} innerWidth={innerWidth} />
 				<CardList projects={projects} />
-			</Suspense>
-		</>
-	)
+			</>
+		)
+	}
+	return <></>
 }
 
 export default Home

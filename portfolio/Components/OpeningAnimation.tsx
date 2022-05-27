@@ -1,5 +1,6 @@
 import { ReactNode, useRef, useState } from 'react'
 import { useEffect, useCallback } from 'react'
+import { number } from 'yup'
 import useLineDraw from '../Hooks/useLineDraw'
 import Curtain from './Curtain'
 
@@ -37,23 +38,16 @@ const getAnimations = (
 		},
 	]
 }
-
-const OpeningAnimation: React.FC = () => {
-	const [innerHeight, setInnerHeight] = useState(0)
-	const [innerWidth, setInnerWidth] = useState(0)
+interface Props {
+	innerWidth: number
+	innerHeight: number
+}
+const OpeningAnimation: React.FC<Props> = ({ innerWidth, innerHeight }) => {
 	const [animations, setAnimations] = useState<LineSegment[]>()
 	const { lineDone, canvasRef } = useLineDraw(animations, 300)
 
 	useEffect(() => {
-		if (typeof window !== undefined) {
-			setInnerHeight(window.innerHeight)
-			setInnerWidth(window.innerWidth)
-		}
-	}, [])
-	useEffect(() => {
-		if (innerWidth & innerHeight) {
-			setAnimations(getAnimations(innerWidth, innerHeight))
-		}
+		setAnimations(getAnimations(innerWidth, innerHeight))
 	}, [innerHeight, innerWidth])
 	if (innerHeight && innerWidth) {
 		return (
