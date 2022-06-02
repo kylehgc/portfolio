@@ -11,7 +11,7 @@ import {
 	Container,
 } from '@chakra-ui/react'
 import Image from 'next/image'
-import { CardData } from './../types'
+import { CardData } from '../types'
 import { RefObject, useEffect, useRef, useState } from 'react'
 import { useElementScroll, useViewportScroll } from 'framer-motion'
 import { useCallback } from 'react'
@@ -40,8 +40,8 @@ const Card: React.FC<Props> = ({
 	const [inView, setInView] = useState(false)
 	const makeViewable = useCallback(() => {
 		if (cardRef.current) {
-			const bottomViewLine = window.innerHeight * 0.8
-			const topViewLine = window.innerHeight * 0.2
+			const bottomViewLine = window.innerHeight * 0.7
+			const topViewLine = window.innerHeight * 0.3
 			const topPosition = cardRef.current.getBoundingClientRect().top
 			const bottomPosition = cardRef.current.getBoundingClientRect().bottom
 			if (bottomPosition < topViewLine || topPosition > bottomViewLine) {
@@ -66,7 +66,7 @@ const Card: React.FC<Props> = ({
 
 	return (
 		<>
-			<Center w={{ base: '100%', md: '70%' }}>
+			<Center cursor="pointer" w={{ base: '100%', md: '70%' }}>
 				<SpringAnimation inView={inView}>
 					<Link href={projectLink}>
 						<Container

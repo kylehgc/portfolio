@@ -42,13 +42,7 @@ const ProjectHero: React.FC<Props> = ({ heroContent }) => {
 					direction={{ base: 'column', md: 'row' }}
 					mx={{ base: 5, md: '15%' }}
 				>
-					<VStack
-						my={4}
-						justifyContent={{ base: undefined, md: 'space-between' }}
-						spacing={{ base: 10, md: undefined }}
-						p={2}
-						w={'auto'}
-					>
+					<VStack my={4} spacing={{ base: 10 }} p={2} w={'auto'}>
 						<Heading> {title} </Heading>
 						<ExternalLinks
 							externalLinkURL={externalLinkURL}

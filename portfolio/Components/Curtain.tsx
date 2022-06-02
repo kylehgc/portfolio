@@ -17,14 +17,15 @@ const Curtain: React.FC<Props> = ({ lineDone, innerHeight, innerWidth }) => {
 						: undefined
 				}
 				style={{
-					zIndex: 10,
+					zIndex: 1000,
+					top: 0,
 					overflow: 'hidden',
 					position: 'fixed',
 					clipPath:
 						'polygon(50% 50%, 25% 75%, 50% 100%, 0% 100%, 0 0, 50% 0, 75% 25%)',
 					width: window.innerWidth,
 					height: window.innerHeight,
-					opacity: 0.9,
+					opacity: 0.97,
 					backgroundColor: '#1A202C',
 				}}
 			></motion.div>
@@ -38,10 +39,11 @@ const Curtain: React.FC<Props> = ({ lineDone, innerHeight, innerWidth }) => {
 						: undefined
 				}
 				style={{
-					zIndex: 10,
+					zIndex: 1000,
+					top: 0,
 					overflow: 'hidden',
 					position: 'fixed',
-					opacity: 0.9,
+					opacity: 0.97,
 					clipPath:
 						'polygon(50% 100%, 25% 75%, 50% 50%, 75% 25%, 50% 0, 100% 0, 100% 100%)',
 					width: innerWidth,

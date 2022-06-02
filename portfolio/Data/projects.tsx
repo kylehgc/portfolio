@@ -8,6 +8,12 @@ const quoteBattlerContent = [
 	' Leveraged react drag and drop to create a fast paced and smooth user experience',
 ]
 
+const hackerNewsContent = [
+	'Hacker News Clone is an app developed to learn react and practice consuming an unfriendly API',
+	'Learned class components, best practices and lifecycle menthods of react class components',
+	'Parsed data from the Hacker News API into a usable format for multiple pages.',
+	'Created custom dark mode stylings done entirely in CSS. ',
+]
 const cbtreeContent = [
 	'CBTree is a web application for creating and managing CBT thought records.',
 	'The front end is a React TypeScript application with strict typings and numerous custom type guards.',
@@ -64,8 +70,26 @@ const quoteBattlerImages: string[] = [
 	'/QuoteBattleScreens/outoftime.png',
 	'/QuoteBattleScreens/unanimatedintro.png',
 ]
+const hackerImages: string[] = [
+	'/HackerScreens/darkmodecomments.png',
+	'/HackerScreens/lightmodecommentszoom.png',
+	'/HackerScreens/darkmodezoom.png',
+	'/HackerScreens/lightmodemain.png',
+	'/HackerScreens/darkmodemain.png',
+	'/HackerScreens/lightmodezoom.png',
+	'/HackerScreens/darkmodecommentszoom.png',
+]
 
-const yarnImages: string[] = ['/YarnScreens/bluecompliment.png']
+const yarnImages: string[] = [
+	'/YarnScreens/bluecompliment.png',
+	'/YarnScreens/colorinsanity.png',
+	'/YarnScreens/gogreen.png',
+	'/YarnScreens/mehgray.png',
+	'/YarnScreens/bluefooter.png',
+	'/YarnScreens/okaypastel.png',
+	'/YarnScreens/uglyyellow.png',
+	'/YarnScreens/wegowhite.png',
+]
 export const projectCards: CardData[] = [
 	{
 		title: 'CBTree',
@@ -97,9 +121,7 @@ export const projectCards: CardData[] = [
 	{
 		title: 'Hacker News Clone',
 		projectLink: 'projects/hackernews',
-		description: [
-			'God help us, were in the hands of engineers. Just my luck, no ice.  if The Pirates of the Caribbean breaks down, the pirates don’t eat the tourists Forget the fat lady! Youre obsessed with the fat lady! Drive us out of here! Did he just throw my cat out of the window?',
-		],
+		description: hackerNewsContent,
 		externalLinkURL:
 			'https://61f462825f74f9221e946dc0--h-news-clone.netlify.app/',
 		repositoryURL: 'https://github.com/kylehgc/hacker-news-clone',
@@ -172,8 +194,25 @@ const yarnIncProject: Project = {
 		content: yarnContent,
 	},
 }
+const hackerNewsProject: Project = {
+	carouselImages: hackerImages,
+	heroContent: {
+		cardData: projectCards[3],
+		heroMedia: '/hackerNews.png',
+		tags: [
+			{ title: 'React', colorScheme: 'blue' },
+			{ title: 'Class Components', colorScheme: 'yellow' },
+			{ title: 'API', colorScheme: 'whiteAlpha' },
+			{ title: 'Dark Mode', colorScheme: 'blackAlpha' },
+		],
+		title: 'Hacker News Clone',
+		content: hackerNewsContent,
+	},
+}
+
 export const Projects: Projects = {
 	cbtree: cbtreeProject,
 	quotebattler: quoteBattlerProject,
 	yarninc: yarnIncProject,
+	hackernews: hackerNewsProject,
 }

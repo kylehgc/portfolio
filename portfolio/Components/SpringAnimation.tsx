@@ -17,7 +17,7 @@ const SpringAnimation: React.FC<Props> = ({ children, inView }) => {
 						transition: {
 							type: 'spring',
 							duration: 1,
-							bounce: 0.5,
+							bounce: 0.4,
 							delay: 0.05,
 						},
 					},

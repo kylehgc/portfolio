@@ -51,7 +51,7 @@ const OpeningAnimation: React.FC<Props> = ({ innerWidth, innerHeight }) => {
 					<canvas
 						height={innerHeight}
 						width={innerWidth}
-						style={{ position: 'fixed', zIndex: 11 }}
+						style={{ top: 0, position: 'fixed', zIndex: 1001 }}
 						ref={canvasRef}
 					/>
 				)}
