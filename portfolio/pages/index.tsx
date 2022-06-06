@@ -26,12 +26,6 @@ const Home: NextPage = () => {
 					<CardList projects={projectCards} />
 					<Contact />
 					<Heading id={'resume'}> Resume </Heading>
-
-					<Link href={'/kyleresume.pdf'}>
-						<Box m={4}>
-							<Image alt={'Kyle Christensen Resume'} src={resume} />
-						</Box>
-					</Link>
 				</Center>
 			</>
 		)

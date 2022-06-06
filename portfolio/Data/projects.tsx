@@ -164,17 +164,18 @@ export const cbtreeProject: Project = {
 		title: 'CBtree',
 		cardData: projectCards[0],
 		content: cbtreeContent,
-		heroMedia: (
-			<AspectRatio minW={{ base: '300px', md: '60%' }} ratio={1072 / 1920}>
-				<iframe
-					title="CBTree explination"
-					src="https://www.youtube.com/embed/nypalgwSou0?playlist=nypalgwSou0&autoplay=1&mute=1&loop=1&playsinline=1"
-					frameBorder="0"
-					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
-					allowFullScreen
-				/>
-			</AspectRatio>
-		),
+		heroMedia: '/cbtree.gif',
+		//(
+		// 	<AspectRatio minW={{ base: '300px', md: '60%' }} ratio={1072 / 1920}>
+		// 		<iframe
+		// 			title="CBTree explination"
+		// 			src="https://www.youtube.com/embed/nypalgwSou0?playlist=nypalgwSou0&autoplay=1&mute=1&loop=1&playsinline=1"
+		// 			frameBorder="0"
+		// 			allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope;"
+		// 			allowFullScreen
+		// 		/>
+		// 	</AspectRatio>
+		// ),
 	},
 }
 

@@ -1,4 +1,4 @@
-import { Flex, Center } from '@chakra-ui/react'
+import { Flex, Center, Container, VStack } from '@chakra-ui/react'
 import FlipCard from 'react-card-flip'
 import { useState } from 'react'
 import MainPageHeroContent from './MainPageHeroContent'
@@ -16,16 +16,16 @@ const MainPageHero: React.FC = () => {
 		<>
 			<Flex
 				mt="120px"
-				w={'100vw'}
-				p={2}
-				gap={'50px'}
-				alignSelf={'center'}
+				w={{ base: '100vw', md: '100vw' }}
+				p={10}
+				gap={{ base: 10, md: 0 }}
 				alignItems={{ base: 'center', md: 'normal' }}
 				justifyContent={{ base: 'normal', md: 'space-evenly' }}
 				flexDir={{ base: 'column', md: 'row' }}
 			>
-				<MainPageHeroContent isFront={isFlipped} />
-				<Center w={'30%'}>
+				<MainPageHeroContent />
+
+				<Center w={{ base: 'full', mid: '	30%' }}>
 					<FlipCard isFlipped={isFlipped}>
 						<AvatarCard
 							tags={frontTags}

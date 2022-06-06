@@ -28,7 +28,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ links, onToggle, isOpen }) => {
 				unmountOnExit
 				style={{
 					display: 'flex',
-					width: '100vw',
+					width: '60vw',
 					height: '100vh',
 					flexDirection: 'row',
 					justifyContent: 'flex-end',
@@ -56,7 +56,12 @@ const MobileNav: React.FC<MobileNavProps> = ({ links, onToggle, isOpen }) => {
 							w={'100%'}
 						>
 							{links.map((link, index) => (
-								<Link key={link.title} href={link.href}>
+								<Link
+									key={link.title}
+									href={link.href}
+									target="_blank"
+									rel="noopener noreferrer"
+								>
 									<Text
 										pl={5}
 										fontWeight={'bold'}

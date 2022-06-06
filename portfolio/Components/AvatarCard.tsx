@@ -8,7 +8,8 @@ import {
 	Text,
 	Tag as ChakraTag,
 } from '@chakra-ui/react'
-
+import Image from 'next/image'
+import refresh from '../public/refresh.png'
 import Link from 'next/link'
 import useThemeColors from '../Hooks/useThemeColors'
 import { Tag } from '../Data/projects'
@@ -30,15 +31,18 @@ const AvatarCard: React.FC<Props> = ({
 	const { secondary } = useThemeColors()
 	return (
 		<Box
+			position={'relative'}
 			mb={10}
 			onClick={onClick}
 			maxW={{ base: '320px', md: '350px' }}
-			w={'100%'}
+			w={'100vw'}
 			minW={{ base: '300px', md: '300px' }}
 			boxShadow={'2xl'}
 			rounded={'2xl'}
-			overflow={'hidden'}
 		>
+			<Box position={'absolute'} right={-3} top={-3}>
+				<Image width={30} height={30} alt={'refresh icon'} src={refresh} />{' '}
+			</Box>
 			<Box
 				bgGradient={'linear(to-tr, #BEE3F8, gray.500)'}
 				h={{ base: '120px', md: '130px' }}
@@ -80,23 +84,25 @@ const AvatarCard: React.FC<Props> = ({
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<Button
-						alignSelf={'center'}
-						onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-							event.stopPropagation()
-						}
-						w={'95%'}
-						mt={8}
-						bg={secondary}
-						color={'gray.700'}
-						rounded={'md'}
-						_hover={{
-							transform: 'translateY(-2px)',
-							boxShadow: 'lg',
-						}}
-					>
-						Resume
-					</Button>
+					<a>
+						<Button
+							alignSelf={'center'}
+							onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+								event.stopPropagation()
+							}
+							w={'95%'}
+							mt={8}
+							bg={secondary}
+							color={'gray.700'}
+							rounded={'md'}
+							_hover={{
+								transform: 'translateY(-2px)',
+								boxShadow: 'lg',
+							}}
+						>
+							Resume
+						</Button>
+					</a>
 				</Link>
 			</Flex>
 		</Box>

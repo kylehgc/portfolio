@@ -24,8 +24,8 @@ export interface navLink {
 }
 const links: navLink[] = [
 	{ title: 'Projects', href: '/#projects' },
-	{ title: 'Resume', href: '/#resume' },
-	{ title: 'Contact', href: '' },
+	{ title: 'Resume', href: '/kyleresume.pdf' },
+	{ title: 'Contact', href: '/#contact' },
 	{ title: 'About', href: '' },
 ]
 const springAnimation: Transition = {
@@ -105,8 +105,11 @@ const Nav: React.FC = () => {
 							w={'100vw'}
 						>
 							<Link href={'/'}>
-								<Image height={'45'} width={'45'} src={Logo.src} alt="logo" />
+								<a>
+									<Image height={'45'} width={'45'} src={Logo.src} alt="logo" />
+								</a>
 							</Link>
+
 							<HStack spacing={12}>
 								{isMobile ? (
 									<MobileNav
@@ -115,16 +118,9 @@ const Nav: React.FC = () => {
 										isOpen={drawerIsOpen}
 									/>
 								) : (
-									links.map((link, index) => (
+									links.map((link) => (
 										<Link key={link.title} href={link.href}>
-											<Text
-												fontWeight="semibold"
-												cursor="pointer"
-												as={'div'}
-												color={secondary}
-												m={2}
-											>
-												{index + 1}.
+											<a>
 												<Text
 													_hover={{ color: secondary, fontWeight: 'bold' }}
 													as={'div'}
@@ -134,7 +130,7 @@ const Nav: React.FC = () => {
 												>
 													{link.title}
 												</Text>
-											</Text>
+											</a>
 										</Link>
 									))
 								)}

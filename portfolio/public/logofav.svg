@@ -1,0 +1,14 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <g>
+   <g>
+    <title>Layer 1</title>
+    <path d="m14.99999,101.92857l35.4643,-70.92857l94.57145,0l35.46428,70.92857l-35.46428,70.92857l-94.57145,0l-35.4643,-70.92857z" id="svg_3" stroke-width="8" stroke="#BEE3F8" fill="#000000"/>
+    <text fill="#BEE3F8" stroke="#BEE3F8" x="56.14" y="99.81432" id="svg_2" stroke-width="1" font-size="48" font-family="'Roboto Slab'" text-anchor="start" xml:space="preserve" font-weight="normal">KH</text>
+    <text fill="#BEE3F8" stroke="#BEE3F8" x="75.14" y="146.81432" id="svg_1" stroke-width="1" font-size="48" font-family="'Roboto Slab'" text-anchor="start" xml:space="preserve">GC</text>
+   </g>
+  </g>
+ </g>
+
+</svg>
