@@ -1,5 +1,4 @@
 import {
-	Text,
 	Center,
 	Heading,
 	Flex,

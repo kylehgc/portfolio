@@ -1,16 +1,15 @@
-import { Box, Flex, Center } from '@chakra-ui/react'
+import { Flex, Center } from '@chakra-ui/react'
 import FlipCard from 'react-card-flip'
 import { useState } from 'react'
-import CardFront from './CardFront'
-import CardBack from './CardBack'
 import MainPageHeroContent from './MainPageHeroContent'
 import AvatarCard from './AvatarCard'
 import frontAvatar from '../public/KyleAvatar.png'
 import backAvatar from '../public/KyleAvatarBack.jpg'
+import { backendTags, frontTags, Tag } from '../Data/projects'
 
 const MainPageHero: React.FC = () => {
 	const [isFlipped, setIsFlipped] = useState(false)
-	const handleOnClick = () => {
+	const handleOnClick = (event: React.MouseEvent<HTMLElement>) => {
 		setIsFlipped((isFlipped) => !isFlipped)
 	}
 	return (
@@ -29,6 +28,7 @@ const MainPageHero: React.FC = () => {
 				<Center w={'30%'}>
 					<FlipCard isFlipped={isFlipped}>
 						<AvatarCard
+							tags={frontTags}
 							key={'front'}
 							onClick={handleOnClick}
 							name="Kyle Christensen"
@@ -36,6 +36,7 @@ const MainPageHero: React.FC = () => {
 							imageSRC={frontAvatar.src}
 						/>
 						<AvatarCard
+							tags={backendTags}
 							key={'back'}
 							onClick={handleOnClick}
 							name="Kyle Christensen"

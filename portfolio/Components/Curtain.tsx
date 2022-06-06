@@ -29,6 +29,7 @@ const Curtain: React.FC<Props> = ({ lineDone, innerHeight, innerWidth }) => {
 					backgroundColor: '#1A202C',
 				}}
 			></motion.div>
+
 			<motion.div
 				animate={
 					lineDone

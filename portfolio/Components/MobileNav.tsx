@@ -1,51 +1,85 @@
-import { Box, Text, Slide, Flex, VStack } from '@chakra-ui/react'
-import Hamburger from 'hamburger-react'
+import { Box, Text, Slide, Flex, Container } from '@chakra-ui/react'
+import { Transition } from 'framer-motion'
+import { Spin as Hamburger } from 'hamburger-react'
 import Link from 'next/link'
 import useThemeColors from '../Hooks/useThemeColors'
 import { navLink } from './Nav'
-import springAnimation from './SpringAnimation'
 
 interface MobileNavProps {
 	isOpen: boolean
 	onToggle: () => void
 	links: navLink[]
 }
+
+const drawerAnimation: Transition = {
+	type: 'tween',
+	duration: 0.25,
+}
+
 const MobileNav: React.FC<MobileNavProps> = ({ links, onToggle, isOpen }) => {
 	const { secondary } = useThemeColors()
 	return (
 		<>
 			<Box onClick={onToggle} zIndex={99}>
-				<Hamburger rounded toggled={isOpen} />
+				<Hamburger direction={'left'} rounded toggled={isOpen} />
 			</Box>
 
 			<Slide
 				unmountOnExit
-				style={{ width: '40vw', height: '100vh' }}
+				style={{
+					display: 'flex',
+					width: '100vw',
+					height: '100vh',
+					flexDirection: 'row',
+					justifyContent: 'flex-end',
+				}}
 				direction="right"
 				in={isOpen}
 				transition={{
-					enter: springAnimation,
-					exit: springAnimation,
+					enter: drawerAnimation,
+					exit: drawerAnimation,
 				}}
 			>
-				<Flex zIndex={6} opacity={1} height={'100vh'} w={'40vw'} bg={'black'}>
-					<VStack>
-						{links.map((link, index) => (
-							<Link key={link.title} href={link.href}>
-								<Text onClick={onToggle} as={'div'} color={secondary} m={2}>
-									{index + 1}.
+				<Flex
+					alignItems={'center'}
+					opacity={1}
+					height={'100vh'}
+					w={'60vw'}
+					bg={'black'}
+				>
+					<Container>
+						<Flex
+							flexDir={'column'}
+							gap={10}
+							textAlign={'center'}
+							mr={'10vw'}
+							w={'100%'}
+						>
+							{links.map((link, index) => (
+								<Link key={link.title} href={link.href}>
 									<Text
-										display={'inline'}
+										pl={5}
+										fontWeight={'bold'}
+										fontSize={'2xl'}
+										onClick={onToggle}
 										as={'div'}
-										mx={2}
-										color={'whiteAlpha.800'}
+										color={secondary}
+										m={2}
 									>
-										{link.title}{' '}
+										{index + 1}.
+										<Text
+											textAlign={'center'}
+											as={'div'}
+											mx={2}
+											color={'white'}
+										>
+											{link.title}
+										</Text>
 									</Text>
-								</Text>
-							</Link>
-						))}
-					</VStack>
+								</Link>
+							))}
+						</Flex>
+					</Container>
 				</Flex>
 			</Slide>
 		</>

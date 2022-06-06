@@ -7,7 +7,23 @@ const quoteBattlerContent = [
 	'Managed complex game state with useReducer and ContextAPI.',
 	' Leveraged react drag and drop to create a fast paced and smooth user experience',
 ]
+export const backendTags: Tag[] = [
+	{ title: 'Node.js', colorScheme: 'blackAlpha' },
+	{ title: 'Python', colorScheme: 'teal' },
+	{ title: 'FastApi', colorScheme: 'blue' },
+	{ title: 'Bash', colorScheme: 'purple' },
+	{ title: 'API', colorScheme: 'red' },
+	{ title: 'Typescript', colorScheme: 'orange' },
+]
 
+export const frontTags: Tag[] = [
+	{ title: 'TypeScript', colorScheme: 'blue' },
+	{ title: 'React', colorScheme: 'teal' },
+	{ title: 'UX', colorScheme: 'whiteAlpha' },
+	{ title: 'Dynamic', colorScheme: 'orange' },
+	{ title: 'Design', colorScheme: 'yellow' },
+	{ title: 'CSS', colorScheme: 'green' },
+]
 const hackerNewsContent = [
 	'Hacker News Clone is an app developed to learn react and practice consuming an unfriendly API',
 	'Learned class components, best practices and lifecycle menthods of react class components',
@@ -29,7 +45,7 @@ const yarnContent = [
 	'Realized pretty early on that best case scenario Yarn would be a poor version of wix and ceased development',
 ]
 
-interface Tag {
+export interface Tag {
 	title: string
 	colorScheme: string
 }

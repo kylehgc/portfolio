@@ -26,6 +26,7 @@ const links: navLink[] = [
 	{ title: 'Projects', href: '/#projects' },
 	{ title: 'Resume', href: '/#resume' },
 	{ title: 'Contact', href: '' },
+	{ title: 'About', href: '' },
 ]
 const springAnimation: Transition = {
 	type: 'spring',
@@ -116,16 +117,22 @@ const Nav: React.FC = () => {
 								) : (
 									links.map((link, index) => (
 										<Link key={link.title} href={link.href}>
-											<Text cursor="pointer" as={'div'} color={secondary} m={2}>
+											<Text
+												fontWeight="semibold"
+												cursor="pointer"
+												as={'div'}
+												color={secondary}
+												m={2}
+											>
 												{index + 1}.
 												<Text
+													_hover={{ color: secondary, fontWeight: 'bold' }}
 													as={'div'}
 													mx={2}
 													display={'inline'}
 													color={'white'}
-													fontWeight="bold"
 												>
-													{link.title}{' '}
+													{link.title}
 												</Text>
 											</Text>
 										</Link>

@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
+import useThemeColors from './useThemeColors'
 type InterSection = [number, number]
 
 interface LineSegment {
@@ -10,15 +11,17 @@ const useLineDraw = (
 	lineSegments: LineSegment[] | undefined,
 	lineTime: number,
 ) => {
+	const { secondary } = useThemeColors()
 	const [lineDone, setLineDone] = useState(false)
 	const canvasRef = useRef<HTMLCanvasElement>(null)
-	const runningAnimations = useRef<number>()
+	const runningAnimations = useRef<number>(0)
+
 	const draw = (lineSegment: LineSegment, canvas: CanvasRenderingContext2D) => {
 		const { starting, ending } = lineSegment
 		canvas.beginPath()
 		canvas.moveTo(...starting)
 		canvas.lineTo(...ending)
-		canvas.strokeStyle = '#BEE3F8'
+		canvas.strokeStyle = secondary
 		canvas.lineWidth = 4
 		canvas.stroke()
 	}
@@ -40,11 +43,8 @@ const useLineDraw = (
 			]
 
 			while (count < frames) {
-				if (runningAnimations.current === undefined) {
-					runningAnimations.current = 1
-				} else {
-					runningAnimations.current++
-				}
+				runningAnimations.current++
+
 				setTimeout(() => {
 					requestAnimationFrame(() => {
 						draw(
@@ -72,7 +72,8 @@ const useLineDraw = (
 				count++
 			}
 		},
-		[lineTime],
+		// eslint-disable-next-line react-hooks/exhaustive-deps
+		[],
 	)
 
 	useEffect(() => {
@@ -90,7 +91,7 @@ const useLineDraw = (
 	}, [lineDone])
 
 	useEffect(() => {
-		const canvas = canvasRef?.current?.getContext('2d')
+		const canvas = canvasRef.current?.getContext('2d')
 
 		if (canvas && lineSegments) {
 			lineSegments.forEach((lineSegment, index) => {
