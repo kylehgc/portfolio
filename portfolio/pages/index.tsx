@@ -20,17 +20,21 @@ const Home: NextPage = () => {
 	if (innerHeight && innerWidth) {
 		return (
 			<>
-				<Center overflow="hidden" gap={10} flexDir={'column'}>
+				<Center id={'top'} overflow="hidden" gap={10} flexDir={'column'}>
 					<BorderLine innerHeight={innerHeight} innerWidth={innerWidth} />
 					<MainPageHero />
 					<CardList projects={projectCards} />
-					<AboutMe />
 					<Contact />
+					<AboutMe />
 				</Center>
 			</>
 		)
 	}
-	return <></>
+	return (
+		<>
+			<Center h={'100vh'} />
+		</>
+	)
 }
 
 export default Home

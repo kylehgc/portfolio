@@ -24,9 +24,9 @@ export interface navLink {
 }
 const links: navLink[] = [
 	{ title: 'Projects', href: '/#projects' },
+	{ title: 'Contact', href: '/#contact' },
 	{ title: 'About', href: '/#aboutme' },
 	{ title: 'Resume', href: '/kyleresume.pdf' },
-	{ title: 'Contact', href: '/#contact' },
 ]
 const springAnimation: Transition = {
 	type: 'spring',

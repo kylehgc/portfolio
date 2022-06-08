@@ -34,10 +34,11 @@ const MainPageHeroContent: React.FC = () => {
 					from requirements through technical design and implementation.
 				</Text>
 				<Text color={'whiteAlpha.900'}>
-					I pride myself on clear code using best practices and strive to leave
-					any codebase better than I found it. Please reach out if you&apos;d
-					like to discuss a project, job, or just a tough problem you&apos;d
-					like help tackling.
+					I&apos;m hoping to join a software team where I can find mentorship
+					and feedback on what I know and what I don&apos;t know. I&apos;m
+					excited to solve novel problems and gain the insight that one can only
+					get from working day to day on projects with people who are as deeply
+					committed to their work as I am.
 				</Text>
 			</Flex>
 		</Flex>

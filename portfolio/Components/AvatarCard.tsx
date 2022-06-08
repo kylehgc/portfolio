@@ -44,6 +44,7 @@ const AvatarCard: React.FC<Props> = ({
 				<Image width={30} height={30} alt={'refresh icon'} src={refresh} />{' '}
 			</Box>
 			<Box
+				borderRadius={'15px 15px 0 0'}
 				bgGradient={'linear(to-tr, #BEE3F8, gray.500)'}
 				h={{ base: '120px', md: '130px' }}
 				w={'full'}

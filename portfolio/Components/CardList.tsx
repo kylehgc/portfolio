@@ -7,7 +7,7 @@ interface Props {
 
 const CardList: React.FC<Props> = ({ projects }) => {
 	return (
-		<Center id={'projects'} gap={'100px'} flexDir={'column'}>
+		<Center id={'projects'} gap={'50px'} flexDir={'column'}>
 			<Heading> Projects </Heading>
 			{projects.map((project) => (
 				<Card key={project.title} CardData={project} />
