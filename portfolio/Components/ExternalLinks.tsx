@@ -18,7 +18,7 @@ const ExternalLinks: React.FC<Props> = ({ repositoryURL, externalLinkURL }) => {
 				</Box>
 			</Link>
 			<Link href={externalLinkURL}>
-				<LinkIcon color={'white'} boxSize={6} />
+				<LinkIcon as={'a'} color={'white'} boxSize={6} />
 			</Link>
 		</HStack>
 	)

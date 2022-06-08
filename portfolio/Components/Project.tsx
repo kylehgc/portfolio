@@ -1,5 +1,5 @@
 import { Flex, Box, VStack, Container } from '@chakra-ui/react'
-import { Project } from '../Data/projects'
+import { Project } from '../Data/content'
 import ProjectHero from './ProjectHero'
 import Carousel from './Corousel'
 
@@ -11,7 +11,6 @@ const Project: React.FC<props> = ({ project }) => {
 	return (
 		<>
 			<ProjectHero heroContent={heroContent} />
-
 			<Carousel images={carouselImages} />
 		</>
 	)

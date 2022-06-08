@@ -1,9 +1,8 @@
 import { NextPage } from 'next/types'
 import { useRouter } from 'next/router'
-import { Projects } from '../../Data/projects'
+import { Projects } from '../../Data/content'
 import Project from '../../Components/Project'
-import Nav from '../../Components/Nav'
-import { Fade, ScaleFade, SlideFade } from '@chakra-ui/react'
+import { ScaleFade } from '@chakra-ui/react'
 const ProjectPage: NextPage = () => {
 	const router = useRouter()
 	const { id } = router.query

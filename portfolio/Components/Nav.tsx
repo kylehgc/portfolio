@@ -24,9 +24,9 @@ export interface navLink {
 }
 const links: navLink[] = [
 	{ title: 'Projects', href: '/#projects' },
+	{ title: 'About', href: '/#aboutme' },
 	{ title: 'Resume', href: '/kyleresume.pdf' },
 	{ title: 'Contact', href: '/#contact' },
-	{ title: 'About', href: '' },
 ]
 const springAnimation: Transition = {
 	type: 'spring',
@@ -106,7 +106,7 @@ const Nav: React.FC = () => {
 						>
 							<Link href={'/'}>
 								<a>
-									<Image height={'45'} width={'45'} src={Logo.src} alt="logo" />
+									<Image height={'45'} width={'45'} src={Logo} alt="logo" />
 								</a>
 							</Link>
 

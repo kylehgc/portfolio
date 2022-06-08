@@ -63,23 +63,13 @@ const MobileNav: React.FC<MobileNavProps> = ({ links, onToggle, isOpen }) => {
 									rel="noopener noreferrer"
 								>
 									<Text
-										pl={5}
-										fontWeight={'bold'}
-										fontSize={'2xl'}
 										onClick={onToggle}
+										textAlign={'center'}
 										as={'div'}
-										color={secondary}
-										m={2}
+										mx={2}
+										color={'white'}
 									>
-										{index + 1}.
-										<Text
-											textAlign={'center'}
-											as={'div'}
-											mx={2}
-											color={'white'}
-										>
-											{link.title}
-										</Text>
+										{link.title}
 									</Text>
 								</Link>
 							))}

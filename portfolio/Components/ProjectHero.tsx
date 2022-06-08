@@ -8,7 +8,7 @@ import {
 	Tag,
 	HStack,
 } from '@chakra-ui/react'
-import { heroContent } from '../Data/projects'
+import { heroContent } from '../Data/content'
 import Image from 'next/image'
 import ExternalLinks from './ExternalLinks'
 

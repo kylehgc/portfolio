@@ -25,7 +25,7 @@ const Contact: React.FC = () => {
 	const { secondary } = useThemeColors()
 	return (
 		<>
-			<VStack spacing={20} w={'100vw'}>
+			<VStack spacing={'50px'} w={'100vw'}>
 				<Heading size={'xl'} id="contact">
 					Contact
 				</Heading>

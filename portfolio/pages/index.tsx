@@ -1,14 +1,14 @@
 import type { NextPage } from 'next'
 import Image from 'next/image'
-import { projectCards } from '../Data/projects'
+import { projectCards } from '../Data/content'
 import CardList from '../Components/CardList'
 import BorderLine from '../Components/OpeningAnimation'
 import { useEffect, useState } from 'react'
 import { Box, Center, Container, Heading } from '@chakra-ui/react'
 import MainPageHero from '../Components/MainPageHero'
-import resume from '../public/Kylesresume.png'
-import Link from 'next/link'
+
 import Contact from '../Components/Contact'
+import AboutMe from '../Components/AboutMe'
 
 const Home: NextPage = () => {
 	const [innerHeight, setInnerHeight] = useState<number>()
@@ -24,8 +24,8 @@ const Home: NextPage = () => {
 					<BorderLine innerHeight={innerHeight} innerWidth={innerWidth} />
 					<MainPageHero />
 					<CardList projects={projectCards} />
+					<AboutMe />
 					<Contact />
-					<Heading id={'resume'}> Resume </Heading>
 				</Center>
 			</>
 		)

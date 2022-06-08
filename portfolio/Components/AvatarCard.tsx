@@ -12,7 +12,7 @@ import Image from 'next/image'
 import refresh from '../public/refresh.png'
 import Link from 'next/link'
 import useThemeColors from '../Hooks/useThemeColors'
-import { Tag } from '../Data/projects'
+import { Tag } from '../Data/content'
 
 interface Props {
 	onClick: (event: React.MouseEvent<HTMLElement>) => void
@@ -84,25 +84,23 @@ const AvatarCard: React.FC<Props> = ({
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<a>
-						<Button
-							alignSelf={'center'}
-							onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-								event.stopPropagation()
-							}
-							w={'95%'}
-							mt={8}
-							bg={secondary}
-							color={'gray.700'}
-							rounded={'md'}
-							_hover={{
-								transform: 'translateY(-2px)',
-								boxShadow: 'lg',
-							}}
-						>
-							Resume
-						</Button>
-					</a>
+					<Button
+						alignSelf={'center'}
+						onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+							event.stopPropagation()
+						}
+						w={'95%'}
+						mt={8}
+						bg={secondary}
+						color={'gray.700'}
+						rounded={'md'}
+						_hover={{
+							transform: 'translateY(-2px)',
+							boxShadow: 'lg',
+						}}
+					>
+						Resume
+					</Button>
 				</Link>
 			</Flex>
 		</Box>

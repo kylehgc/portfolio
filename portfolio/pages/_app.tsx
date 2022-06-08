@@ -7,6 +7,7 @@ import type { AppProps } from 'next/app'
 import Nav from '../Components/Nav'
 import Head from 'next/head'
 import theme from '../Theme/Theme'
+import Footer from '../Components/Footer'
 function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
@@ -17,6 +18,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				<DarkMode>
 					<Nav />
 					<Component {...pageProps} />
+					<Footer />
 				</DarkMode>
 			</ChakraProvider>
 		</>

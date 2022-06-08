@@ -5,7 +5,7 @@ import MainPageHeroContent from './MainPageHeroContent'
 import AvatarCard from './AvatarCard'
 import frontAvatar from '../public/KyleAvatar.png'
 import backAvatar from '../public/KyleAvatarBack.jpg'
-import { backendTags, frontTags, Tag } from '../Data/projects'
+import { backendTags, frontTags, Tag } from '../Data/content'
 
 const MainPageHero: React.FC = () => {
 	const [isFlipped, setIsFlipped] = useState(false)
