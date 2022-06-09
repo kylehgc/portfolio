@@ -12,8 +12,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Head>
+				<html lang="en" />
 				<title>Kyle Christensen&apos;s Portfolio</title>
 				<link rel="shortcut icon" href="/logofav.svg" />
+				<meta
+					name="description"
+					content={'Front page of the portfolio of Kyle Christensen'}
+				/>
 			</Head>
 			<ChakraProvider theme={theme}>
 				<DarkMode>

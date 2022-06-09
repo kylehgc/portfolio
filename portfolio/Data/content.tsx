@@ -26,8 +26,8 @@ export const backendTags: Tag[] = [
 export const frontTags: Tag[] = [
 	{ title: 'TypeScript', colorScheme: 'blue' },
 	{ title: 'React', colorScheme: 'teal' },
-	{ title: 'UX', colorScheme: 'whiteAlpha' },
-	{ title: 'Dynamic', colorScheme: 'orange' },
+	{ title: 'UX', colorScheme: 'black' },
+	{ title: 'Dynamic', colorScheme: 'pink' },
 	{ title: 'Design', colorScheme: 'yellow' },
 	{ title: 'CSS', colorScheme: 'green' },
 ]

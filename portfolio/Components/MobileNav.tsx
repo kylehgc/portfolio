@@ -21,7 +21,13 @@ const MobileNav: React.FC<MobileNavProps> = ({ links, onToggle, isOpen }) => {
 	return (
 		<>
 			<Box onClick={onToggle} zIndex={99}>
-				<Hamburger direction={'left'} rounded toggled={isOpen} />
+				<Hamburger
+					label="Show menu"
+					color={secondary}
+					direction={'left'}
+					rounded
+					toggled={isOpen}
+				/>
 			</Box>
 
 			<Slide

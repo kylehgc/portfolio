@@ -7,6 +7,7 @@ import {
 	Button,
 	Text,
 	Tag as ChakraTag,
+	Circle,
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import clicky from '../public/clicky.png'
@@ -65,13 +66,24 @@ const AvatarCard: React.FC<Props> = ({
 				objectFit={'cover'}
 			/>
 			<Flex justify={'center'} mt={-12}>
-				<Avatar
-					size={'2xl'}
-					src={imageSRC}
+				<Circle
+					overflow={'hidden'}
+					// size={'2xl'}
+
+					size={'128px'}
+					bg={'gray.200'}
 					css={{
 						border: '2px solid white',
 					}}
-				/>
+				>
+					<Image
+						alt={'Kyle Christensen'}
+						objectFit={'cover'}
+						height={'124'}
+						width={'124'}
+						src={imageSRC}
+					/>
+				</Circle>
 			</Flex>
 
 			<Flex w={'full'} flexDir={'column'} p={4}>
