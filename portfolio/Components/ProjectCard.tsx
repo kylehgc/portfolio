@@ -77,8 +77,8 @@ const Card: React.FC<Props> = ({
 								<Center maxWidth={{ base: 190, md: 300 }}>
 									<Image
 										objectFit="contain"
-										height={'896'}
-										width={'414'}
+										height={896}
+										width={414}
 										alt="Project Screenshot"
 										src={screenshotSrc}
 									/>

@@ -68,8 +68,6 @@ const AvatarCard: React.FC<Props> = ({
 			<Flex justify={'center'} mt={-12}>
 				<Circle
 					overflow={'hidden'}
-					// size={'2xl'}
-
 					size={'128px'}
 					bg={'gray.200'}
 					css={{
@@ -78,9 +76,9 @@ const AvatarCard: React.FC<Props> = ({
 				>
 					<Image
 						alt={'Kyle Christensen'}
-						objectFit={'cover'}
-						height={'124'}
-						width={'124'}
+						objectFit={'contain'}
+						height={'124px'}
+						width={'124px'}
 						src={imageSRC}
 					/>
 				</Circle>

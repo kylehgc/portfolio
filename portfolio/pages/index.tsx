@@ -1,12 +1,11 @@
 import type { NextPage } from 'next'
-import Image from 'next/image'
 import { projectCards } from '../Data/content'
 import CardList from '../Components/CardList'
 import BorderLine from '../Components/OpeningAnimation'
 import { useEffect, useState } from 'react'
-import { Box, Center, Container, Heading } from '@chakra-ui/react'
+import { Center } from '@chakra-ui/react'
 import MainPageHero from '../Components/MainPageHero'
-
+import Head from 'next/head'
 import Contact from '../Components/Contact'
 import AboutMe from '../Components/AboutMe'
 
@@ -20,6 +19,15 @@ const Home: NextPage = () => {
 	if (innerHeight && innerWidth) {
 		return (
 			<>
+				<Head>
+					<link rel="shortcut icon" href="/logofav.svg" />
+					<title>Kyle Christensen&apos;s Portfolio</title>
+
+					<meta
+						name="description"
+						content={'Front page of the portfolio of Kyle Christensen'}
+					/>
+				</Head>
 				<Center id={'top'} overflow="hidden" gap={10} flexDir={'column'}>
 					<BorderLine innerHeight={innerHeight} innerWidth={innerWidth} />
 					<MainPageHero />

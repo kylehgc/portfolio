@@ -62,6 +62,9 @@ const Contact: React.FC = () => {
 										>
 											<Image
 												m={1}
+												objectFit={'contain'}
+												height={46}
+												width={46}
 												color={'black'}
 												src={image.src}
 												alt={image.src}
