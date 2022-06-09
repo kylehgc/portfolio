@@ -6,12 +6,14 @@ interface Props {
 	children: React.ReactNode
 	delay?: number
 	opacity?: number
+	initial?: boolean
 }
 
 const InViewTransition: React.FC<Props> = ({
 	children,
 	delay = 0,
 	opacity = 0,
+	initial = true,
 }) => {
 	const [top, setTop] = useState(false)
 	const { inView, ref, entry } = useInView()
@@ -32,7 +34,6 @@ const InViewTransition: React.FC<Props> = ({
 			<SlideFade
 				initial={{ opacity: 0 }}
 				offsetY={top ? '-40px' : '40px'}
-				id={'contact'}
 				transition={{ enter: { duration: 0.3, delay, opacity } }}
 				in={inView}
 				ref={ref}

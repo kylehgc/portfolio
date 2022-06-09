@@ -12,6 +12,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 	return (
 		<>
 			<Head>
+				<title>Kyle Christensen&apos;s Portfolio</title>
 				<link rel="shortcut icon" href="/logofav.svg" />
 			</Head>
 			<ChakraProvider theme={theme}>

@@ -29,7 +29,7 @@ const Contact: React.FC = () => {
 	return (
 		<>
 			<InViewTransition>
-				<VStack id={'contact'} spacing={'50px'} w={'100vw'}>
+				<VStack id="contact" spacing={'50px'} w={'100vw'}>
 					<Heading size={'xl'}>Contact</Heading>
 					<Flex
 						my={'2'}

@@ -1,6 +1,6 @@
-import { Center, Fade } from '@chakra-ui/react'
-import { ReactNode, useRef, useState } from 'react'
-import { useEffect, useCallback } from 'react'
+import { Fade } from '@chakra-ui/react'
+import { useState } from 'react'
+import { useEffect } from 'react'
 import useLineDraw from '../Hooks/useLineDraw'
 import Curtain from './Curtain'
 import IconAnimation from './IconAnimation'
@@ -61,15 +61,14 @@ const OpeningAnimation: React.FC<Props> = ({ innerWidth, innerHeight }) => {
 						background: 'transparent',
 						zIndex: 1000,
 						top: 0,
-						position: 'absolute',
+						position: 'fixed',
 					}}
 					in={!lineDone}
 					initial={false}
-					transition={{ exit: { duration: 1 } }}
+					transition={{ exit: { duration: 0.7 } }}
 				>
 					<IconAnimation setDone={setIconDone} />
 				</Fade>
-				)
 				<Curtain
 					innerHeight={innerHeight}
 					innerWidth={innerWidth}

@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { aboutMe } from '../Data/content'
 import useThemeColors from '../Hooks/useThemeColors'
 import InViewTransition from './InViewTransition'
-import { useInView } from 'react-intersection-observer'
 const AboutMe: React.FC = () => {
 	const { primary, secondary } = useThemeColors()
 	return (
