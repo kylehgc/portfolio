@@ -2,10 +2,10 @@ import { CardData } from '../types'
 
 export const aboutMe: string[] = [
 	"I've always had a passion for solving problems, technical and mechanical. I've had many roles in that vein, from developing a paperless filing system to teaching children how to code. I spent the last few years as a bike courier, and while I enjoyed the constant challenge of optimizing routes, I felt unchallenged intellectually. I started coding again and quickly realized that this is what I was missing. I started spending my spare time studying, improving my skills, and helping others online, eventually developing multiple open source personal projects with the aim of becoming a full time software developer.",
-	"I've discovered a love for building applications people actively use, leading me to focus on web development, which has the amazing ability to reach everyone. The browser is a fast, efficient and cross platform application that is literally in everyone's pocket. My next discovery was how powerful React is at creating user interfaces. After leaning into React I quickly realized that the vast majority of errors and pain points come from either lack of documentation or data that isn't always in the structure we expect. Enter: TypeScript!",
+	"I've discovered a love for building applications people actively use, leading me to focus on web development, which has the amazing ability to reach everyone. The browser is a fast, efficient and cross platform application that is literally in everyone's pocket. My next discovery was how powerful React is at creating user interfaces. Leaning into React, I quickly realized that the vast majority of errors and pain points come from either lack of documentation or data that isn't always in the structure we expect. Enter: TypeScript!",
 	"After getting over the initial pain of having to write extra boilerplate and coercing the compiler to actually run my code I fell in love. Suddenly every function documented itself. Every change I made that had the possibility to create an error was suddenly blowing up warnings all over my codebase. Every difficult-to-learn library suddenly had full typings of all methods, even ones that weren't particularly clear in the documentation. My code was teaching me to be a better programmer while warning me about mistakes I might be making. Typescript still feels a little like cheating to be honest. ",
 	"Front end development is limited by two things, your imagination and the data that is available to you. Because of this I've started spending more of my time developing skills for backend. I'd already done multiple fully deployed projects and was comfortable with both Python and Bash. For my last project I leaned into my old love for Python and built a full RESTful API designed for my application.  Being able to craft the data for my application and control exactly how it’s accessed meant that I was now free to do anything. ",
-	"So what's next? I'm hoping to join a software team where I can find mentorship and feedback on what I know and what I don't know. While I've had incredible feedback and code reviews from very talented developers, I haven't been able to work in an environment where we work as a team to reach goals. I'm excited to solve novel problems and gain the insight that one can only get from working day to day on projects with people who are as deeply committed to their work as I am. ",
+	"So what's next? I'm looking to join a software team where I can find mentorship and feedback on what I know and what I don't know. While I've had incredible feedback and code reviews from very talented developers, I haven't been able to work in an environment where we work as a team to reach goals. I'm excited to solve novel problems and gain the insight that one can only get from working day to day on projects with people who are as deeply committed to their work as I am. ",
 ]
 
 const quoteBattlerContent = [
@@ -42,7 +42,7 @@ const cbtreeContent = [
 	'The front end is a React TypeScript application with strict typings and numerous custom type guards.',
 	'Designed, tested and implemented 14 distinct responsive pages.',
 	'Advanced use of custom hooks for API logic, form state logic, theming and authentication.',
-	'Implemented full user management scheme with context api, a custom auth hook backed by JWT.',
+	'Implemented full user management scheme with context api, and a custom auth hook backed by JWT.',
 	'The back end is a RESTful FastAPI Python CRUD application backed by a document based store.',
 ]
 
@@ -171,7 +171,7 @@ export const cbtreeProject: Project = {
 		title: 'CBtree',
 		cardData: projectCards[0],
 		content: cbtreeContent,
-		heroMedia: '/cbtree.gif',
+		heroMedia: '/cbtree.webp',
 		//(
 		// 	<AspectRatio minW={{ base: '300px', md: '60%' }} ratio={1072 / 1920}>
 		// 		<iframe

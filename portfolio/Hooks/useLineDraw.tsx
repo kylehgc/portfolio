@@ -11,6 +11,7 @@ const useLineDraw = (
 	lineSegments: LineSegment[] | undefined,
 	lineTime: number,
 ) => {
+	const [start, setStart] = useState(false)
 	const { secondary } = useThemeColors()
 	const [lineDone, setLineDone] = useState(false)
 	const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -92,15 +93,14 @@ const useLineDraw = (
 
 	useEffect(() => {
 		const canvas = canvasRef.current?.getContext('2d')
-
 		if (canvas && lineSegments) {
 			lineSegments.forEach((lineSegment, index) => {
 				drawSegment(lineSegment, canvas, lineTime * index)
 			})
 		}
-	}, [drawSegment, lineSegments, lineTime])
+	}, [drawSegment, lineSegments, lineTime, start])
 
-	return { lineDone, canvasRef }
+	return { lineDone, canvasRef, start: () => setStart(true) }
 }
 
 export default useLineDraw

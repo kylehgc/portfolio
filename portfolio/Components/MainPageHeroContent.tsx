@@ -2,7 +2,7 @@ import { Flex, Heading, Text, Container } from '@chakra-ui/react'
 import useThemeColors from '../Hooks/useThemeColors'
 
 const MainPageHeroContent: React.FC = () => {
-	const { primary, secondary } = useThemeColors()
+	const { secondary } = useThemeColors()
 	return (
 		<Flex
 			w={{ base: 'full', md: '40%' }}
@@ -24,7 +24,7 @@ const MainPageHeroContent: React.FC = () => {
 					Kyle Christensen
 				</Heading>
 				<Text m={0.5} color={'whiteAlpha.800'}>
-					And I would love to solve your problems
+					And I would love to help solve your problems
 				</Text>
 			</Flex>
 			<Flex gap={8} w={{ base: 'full', md: '70%' }} flexDir={'column'}>
@@ -34,7 +34,7 @@ const MainPageHeroContent: React.FC = () => {
 					from requirements through technical design and implementation.
 				</Text>
 				<Text color={'whiteAlpha.900'}>
-					I&apos;m hoping to join a software team where I can find mentorship
+					I&apos;m looking to join a software team where I can find mentorship
 					and feedback on what I know and what I don&apos;t know. I&apos;m
 					excited to solve novel problems and gain the insight that one can only
 					get from working day to day on projects with people who are as deeply

@@ -9,7 +9,7 @@ import {
 	Tag as ChakraTag,
 } from '@chakra-ui/react'
 import Image from 'next/image'
-import refresh from '../public/refresh.png'
+import clicky from '../public/clicky.png'
 import Link from 'next/link'
 import useThemeColors from '../Hooks/useThemeColors'
 import { Tag } from '../Data/content'
@@ -20,6 +20,7 @@ interface Props {
 	title: string
 	imageSRC: string
 	tags: Tag[]
+	front?: boolean
 }
 const AvatarCard: React.FC<Props> = ({
 	tags,
@@ -27,8 +28,15 @@ const AvatarCard: React.FC<Props> = ({
 	name,
 	title,
 	imageSRC,
+	front = true,
 }) => {
 	const { secondary } = useThemeColors()
+	const frontPosition = { right: -4, top: 0 }
+	const backPosition = { left: -4, top: 0 }
+	const frontTransform = 'rotate(0deg) scaleX(-1)'
+	const backTransform = 'rotate(0deg) '
+	const transform = front ? frontTransform : backTransform
+	const position = front ? frontPosition : backPosition
 	return (
 		<Box
 			position={'relative'}
@@ -40,8 +48,14 @@ const AvatarCard: React.FC<Props> = ({
 			boxShadow={'2xl'}
 			rounded={'2xl'}
 		>
-			<Box position={'absolute'} right={-3} top={-3}>
-				<Image width={30} height={30} alt={'refresh icon'} src={refresh} />{' '}
+			<Box position={'absolute'} {...position}>
+				<Image
+					style={{ transform: transform }}
+					width={45}
+					height={45}
+					alt={'click me icon'}
+					src={clicky}
+				/>
 			</Box>
 			<Box
 				borderRadius={'15px 15px 0 0'}

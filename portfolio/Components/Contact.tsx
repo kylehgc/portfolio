@@ -7,8 +7,6 @@ import {
 	Image,
 	Circle,
 	VStack,
-	SlideFade,
-	Fade,
 } from '@chakra-ui/react'
 import Link from 'next/link'
 import useThemeColors from '../Hooks/useThemeColors'
@@ -17,6 +15,7 @@ import envelope from '../public/envelope.svg'
 import github from '../public/githubdark.png'
 import linkedin from '../public/linkedin.svg'
 import { useInView } from 'react-intersection-observer'
+import InViewTransition from './InViewTransition'
 
 const icons = [
 	{ image: cellphone, link: 'tel:4166551204' },
@@ -26,18 +25,11 @@ const icons = [
 ]
 const Contact: React.FC = () => {
 	const { secondary } = useThemeColors()
-	const { inView, ref } = useInView()
-	console.log(inView)
+
 	return (
 		<>
-			<SlideFade
-				offsetY={'30px'}
-				id={'contact'}
-				transition={{ enter: { duration: 0.3 } }}
-				in={inView}
-				ref={ref}
-			>
-				<VStack spacing={'50px'} w={'100vw'}>
+			<InViewTransition>
+				<VStack id={'contact'} spacing={'50px'} w={'100vw'}>
 					<Heading size={'xl'}>Contact</Heading>
 					<Flex
 						my={'2'}
@@ -81,7 +73,7 @@ const Contact: React.FC = () => {
 						</HStack>
 					</Flex>
 				</VStack>
-			</SlideFade>
+			</InViewTransition>
 		</>
 	)
 }

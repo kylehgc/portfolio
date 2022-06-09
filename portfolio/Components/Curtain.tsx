@@ -17,7 +17,7 @@ const Curtain: React.FC<Props> = ({ lineDone, innerHeight, innerWidth }) => {
 						: undefined
 				}
 				style={{
-					zIndex: 1000,
+					zIndex: 900,
 					top: 0,
 					overflow: 'hidden',
 					position: 'fixed',
@@ -40,7 +40,7 @@ const Curtain: React.FC<Props> = ({ lineDone, innerHeight, innerWidth }) => {
 						: undefined
 				}
 				style={{
-					zIndex: 1000,
+					zIndex: 900,
 					top: 0,
 					overflow: 'hidden',
 					position: 'fixed',

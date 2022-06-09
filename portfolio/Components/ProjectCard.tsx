@@ -11,12 +11,9 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import { CardData } from '../types'
-import { RefObject, useEffect, useRef, useState } from 'react'
-import { useElementScroll, useViewportScroll } from 'framer-motion'
-import { useCallback } from 'react'
 import Link from 'next/link'
-import SpringAnimation from './SpringAnimation'
 import ExternalLinks from './ExternalLinks'
+import InViewTransition from './InViewTransition'
 interface Props {
 	CardData: CardData
 }
@@ -32,48 +29,21 @@ const Card: React.FC<Props> = ({
 		gradiant,
 	},
 }) => {
-	const cardRef: RefObject<HTMLDivElement> = useRef(null)
-	const { scrollYProgress } = useViewportScroll()
 	const descriptionLength = description.length
 	const pointsToShow = useBreakpointValue({ base: 2, md: descriptionLength })
-	const [inView, setInView] = useState(false)
-	const makeViewable = useCallback(() => {
-		if (cardRef.current) {
-			const bottomViewLine = window.innerHeight * 0.7
-			const topViewLine = window.innerHeight * 0.3
-			const topPosition = cardRef.current.getBoundingClientRect().top
-			const bottomPosition = cardRef.current.getBoundingClientRect().bottom
-			if (bottomPosition < topViewLine || topPosition > bottomViewLine) {
-				if (inView) {
-					setInView(false)
-				}
-			} else {
-				if (topPosition < bottomViewLine || bottomPosition > topViewLine) {
-					if (!inView) {
-						setInView(true)
-					}
-				}
-			}
-		}
-	}, [inView])
-
-	useEffect(() => {
-		const unsubFunction = scrollYProgress.onChange(makeViewable)
-		return unsubFunction
-	}, [makeViewable, scrollYProgress])
-	const scroll = useElementScroll(cardRef)
 
 	return (
 		<>
 			<Center cursor="pointer" w={{ base: '100%', md: '70%' }}>
-				<SpringAnimation inView={inView}>
+				<InViewTransition>
 					<Link href={projectLink}>
 						<Container
+							rounded={'2xl'}
 							minHeight={'500px'}
 							bgGradient={gradiant}
 							minW={{ base: '100%', md: '400px', lg: '1150px' }}
 						>
-							<HStack ref={cardRef} justify={'space-around'} px={4}>
+							<HStack justify={'space-around'} px={4}>
 								<Flex
 									pb={3}
 									pt={6}
@@ -116,7 +86,7 @@ const Card: React.FC<Props> = ({
 							</HStack>
 						</Container>
 					</Link>
-				</SpringAnimation>
+				</InViewTransition>
 			</Center>
 		</>
 	)

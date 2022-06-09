@@ -1,5 +1,5 @@
 import { CardData } from '../types'
-import Card from './ProjectCard'
+import ProjectCard from './ProjectCard'
 import { Center, Heading } from '@chakra-ui/react'
 interface Props {
 	projects: CardData[]
@@ -7,12 +7,14 @@ interface Props {
 
 const CardList: React.FC<Props> = ({ projects }) => {
 	return (
-		<Center id={'projects'} gap={'50px'} flexDir={'column'}>
-			<Heading> Projects </Heading>
-			{projects.map((project) => (
-				<Card key={project.title} CardData={project} />
-			))}
-		</Center>
+		<>
+			<Heading id={'projects'}> Projects </Heading>
+			<Center gap={'50px'} flexDir={'column'}>
+				{projects.map((project) => (
+					<ProjectCard key={project.title} CardData={project} />
+				))}
+			</Center>
+		</>
 	)
 }
 

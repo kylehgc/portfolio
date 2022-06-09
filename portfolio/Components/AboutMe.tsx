@@ -2,27 +2,22 @@ import { Heading, Text, Flex, Button, SlideFade } from '@chakra-ui/react'
 import Link from 'next/link'
 import { aboutMe } from '../Data/content'
 import useThemeColors from '../Hooks/useThemeColors'
+import InViewTransition from './InViewTransition'
 import { useInView } from 'react-intersection-observer'
 const AboutMe: React.FC = () => {
 	const { primary, secondary } = useThemeColors()
-	const { inView, ref } = useInView()
 	return (
 		<>
-			<SlideFade
-				offsetY={'30px'}
-				id={'contact'}
-				transition={{ enter: { delay: 0.1, duration: 0.3 } }}
-				in={inView}
-				ref={ref}
-			>
+			<InViewTransition delay={0.1}>
 				<Flex
 					my={4}
+					id="aboutme"
 					gap={'50px'}
 					align={'center'}
 					w={'full'}
 					flexDirection={'column'}
 				>
-					<Heading id="aboutme"> About Me </Heading>
+					<Heading> About Me </Heading>
 					<Text p={4} w={{ base: '90%', md: '70%' }}>
 						{aboutMe[0]}
 					</Text>
@@ -44,7 +39,7 @@ const AboutMe: React.FC = () => {
 						</Button>
 					</Link>
 				</Flex>
-			</SlideFade>
+			</InViewTransition>
 		</>
 	)
 }

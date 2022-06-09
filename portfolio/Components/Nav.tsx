@@ -8,7 +8,7 @@ import {
 	Text,
 } from '@chakra-ui/react'
 
-import Logo from '/public/logo.svg'
+import Logo from '../public/logo.svg'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { useCallback } from 'react'

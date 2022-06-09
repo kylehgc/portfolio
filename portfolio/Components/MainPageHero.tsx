@@ -36,6 +36,7 @@ const MainPageHero: React.FC = () => {
 							imageSRC={frontAvatar.src}
 						/>
 						<AvatarCard
+							front={false}
 							tags={backendTags}
 							key={'back'}
 							onClick={handleOnClick}
