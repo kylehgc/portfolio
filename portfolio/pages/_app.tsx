@@ -7,7 +7,6 @@ import type { AppProps } from 'next/app'
 import Nav from '../Components/Nav'
 import theme from '../Theme/Theme'
 import Footer from '../Components/Footer'
-import Head from 'next/head'
 
 function MyApp({ Component, pageProps }: AppProps) {
 	return (

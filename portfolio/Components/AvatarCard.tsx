@@ -1,7 +1,7 @@
 import {
 	Box,
 	Flex,
-	Avatar,
+	Link,
 	Stack,
 	Heading,
 	Button,
@@ -11,7 +11,7 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import clicky from '../public/clicky.png'
-import Link from 'next/link'
+// import Link from 'next/link'
 import useThemeColors from '../Hooks/useThemeColors'
 import { Tag } from '../Data/content'
 
@@ -76,7 +76,7 @@ const AvatarCard: React.FC<Props> = ({
 				>
 					<Image
 						alt={'Kyle Christensen'}
-						objectFit={'contain'}
+						objectFit={'cover'}
 						height={'124px'}
 						width={'124px'}
 						src={imageSRC}
@@ -104,29 +104,29 @@ const AvatarCard: React.FC<Props> = ({
 						</ChakraTag>
 					))}
 				</Flex>
-				<Link
+				{/* <Link justifyContent={'center'} alignItems={'center'}> */}
+				<Button
 					href={'/kyleresume.pdf'}
 					target="_blank"
 					rel="noopener noreferrer"
+					as={'a'}
+					alignSelf={'center'}
+					onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
+						event.stopPropagation()
+					}
+					w={'95%'}
+					mt={8}
+					bg={secondary}
+					color={'gray.700'}
+					rounded={'md'}
+					_hover={{
+						transform: 'translateY(-2px)',
+						boxShadow: 'lg',
+					}}
 				>
-					<Button
-						alignSelf={'center'}
-						onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-							event.stopPropagation()
-						}
-						w={'95%'}
-						mt={8}
-						bg={secondary}
-						color={'gray.700'}
-						rounded={'md'}
-						_hover={{
-							transform: 'translateY(-2px)',
-							boxShadow: 'lg',
-						}}
-					>
-						Resume
-					</Button>
-				</Link>
+					Resume
+				</Button>
+				{/* </Link> */}
 			</Flex>
 		</Box>
 	)
