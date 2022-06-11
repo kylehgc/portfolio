@@ -10,20 +10,7 @@ import Contact from '../Components/Contact'
 import AboutMe from '../Components/AboutMe'
 import { NextSeo } from 'next-seo'
 
-// const CardList = dynamic(() => import('../Components/CardList'))
-// const MainPageHero = dynamic(() => import('../Components/MainPageHero'))
-
-// const AboutMe = dynamic(() => import('../Components/AboutMe'))
-// const Contact = dynamic(() => import('../Components/Contact'))
-
 const Home: NextPage = () => {
-	const [innerHeight, setInnerHeight] = useState<number>()
-	const [innerWidth, setInnerWidth] = useState<number>()
-	useEffect(() => {
-		setInnerHeight(window.innerHeight)
-		setInnerWidth(window.innerWidth)
-	}, [])
-
 	return (
 		<>
 			<NextSeo
@@ -50,17 +37,13 @@ const Home: NextPage = () => {
 					],
 				}}
 			/>
-			{innerWidth && innerHeight ? (
-				<Center id={'top'} overflow="hidden" gap={10} flexDir={'column'}>
-					<OpeningAnimation innerHeight={innerHeight} innerWidth={innerWidth} />
-					<MainPageHero />
-					<CardList projects={projectCards} />
-					<Contact />
-					<AboutMe />
-				</Center>
-			) : (
-				<Center h={'100vh'} />
-			)}
+			<Center id={'top'} overflow="hidden" gap={10} flexDir={'column'}>
+				<OpeningAnimation />
+				<MainPageHero />
+				<CardList projects={projectCards} />
+				<Contact />
+				<AboutMe />
+			</Center>
 		</>
 	)
 }

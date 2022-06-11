@@ -30,7 +30,10 @@ const Card: React.FC<Props> = ({
 	},
 }) => {
 	const descriptionLength = description.length
-	const pointsToShow = useBreakpointValue({ base: 2, md: descriptionLength })
+	const mobileCutoff = { base: 'none', md: 'List-Item' }
+	const desktopCutoff = 'List-Item'
+
+	// const pointsToShow = useBreakpointValue({ base: 2, md: descriptionLength })
 
 	return (
 		<>
@@ -61,11 +64,14 @@ const Card: React.FC<Props> = ({
 											fontSize={{ base: '16px', md: '18px' }}
 											spacing={8}
 										>
-											{description
-												.slice(0, pointsToShow)
-												.map((descriptionItem, index) => (
-													<ListItem key={index}> {descriptionItem} </ListItem>
-												))}
+											{description.map((descriptionItem, index) => (
+												<ListItem
+													display={index > 1 ? mobileCutoff : desktopCutoff}
+													key={index}
+												>
+													{descriptionItem}{' '}
+												</ListItem>
+											))}
 										</UnorderedList>
 									</VStack>
 

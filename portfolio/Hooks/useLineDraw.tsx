@@ -93,7 +93,9 @@ const useLineDraw = (
 
 	useEffect(() => {
 		const canvas = canvasRef.current?.getContext('2d')
-		if (canvas && lineSegments) {
+
+		if (canvas && lineSegments && start) {
+			canvas.lineCap = 'round'
 			lineSegments.forEach((lineSegment, index) => {
 				drawSegment(lineSegment, canvas, lineTime * index)
 			})

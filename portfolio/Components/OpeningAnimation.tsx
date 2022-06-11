@@ -30,14 +30,13 @@ const getAnimations = (
 		},
 	]
 }
-interface Props {
-	innerWidth: number
-	innerHeight: number
-}
-const OpeningAnimation: React.FC<Props> = ({ innerWidth, innerHeight }) => {
+
+const OpeningAnimation: React.FC = () => {
 	const [animations, setAnimations] = useState<LineSegment[]>()
 	const { lineDone, canvasRef, start } = useLineDraw(animations, 250)
 	const [iconDone, setIconDone] = useState(false)
+	const [windowInnerWidth, setWindowInnerWidth] = useState(0)
+	const [windowInnerHeight, setWindowInnerHeight] = useState(0)
 
 	useEffect(() => {
 		if (iconDone) {
@@ -45,9 +44,14 @@ const OpeningAnimation: React.FC<Props> = ({ innerWidth, innerHeight }) => {
 		}
 	}, [iconDone, start])
 	useEffect(() => {
-		setAnimations(getAnimations(innerWidth, innerHeight))
-	}, [innerHeight, innerWidth])
-	if (innerHeight && innerWidth) {
+		if (window) {
+			setWindowInnerHeight(innerHeight)
+			setWindowInnerWidth(innerWidth)
+			setAnimations(getAnimations(innerWidth, innerHeight))
+		}
+	}, [])
+
+	{
 		return (
 			<>
 				<Fade
@@ -70,22 +74,27 @@ const OpeningAnimation: React.FC<Props> = ({ innerWidth, innerHeight }) => {
 					<IconAnimation setDone={setIconDone} />
 				</Fade>
 				<Curtain
-					innerHeight={innerHeight}
-					innerWidth={innerWidth}
+					innerHeight={'100vh'}
+					innerWidth={'100vw'}
 					lineDone={lineDone}
 				/>
 				{lineDone ? null : (
 					<canvas
-						height={innerHeight}
-						width={innerWidth}
-						style={{ top: 0, position: 'fixed', zIndex: 999 }}
-						ref={iconDone ? canvasRef : undefined}
+						height={windowInnerHeight}
+						width={windowInnerWidth}
+						style={{
+							height: '100vh',
+							width: '100vw',
+							top: 0,
+							position: 'fixed',
+							zIndex: 999,
+						}}
+						ref={canvasRef}
 					/>
 				)}
 			</>
 		)
 	}
-	return <></>
 }
 
 export default OpeningAnimation
