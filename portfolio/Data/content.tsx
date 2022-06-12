@@ -33,7 +33,7 @@ export const frontTags: Tag[] = [
 ]
 const hackerNewsContent = [
 	'Hacker News Clone is an app developed to learn react and practice consuming an unfriendly API',
-	'Learned class components, best practices and lifecycle menthods of react class components',
+	'Learned class components, best practices and lifecycle methods of react class components',
 	'Parsed data from the Hacker News API into a usable format for multiple pages.',
 	'Created custom dark mode stylings done entirely in CSS. ',
 ]
@@ -47,7 +47,7 @@ const cbtreeContent = [
 ]
 
 const yarnContent = [
-	'Yarn Inc is a color and font picker tool for creating fasionable websites',
+	'Yarn Inc is a color and font picker tool for creating fashionable websites',
 	'Wrote custom functionality that causes Yarn to only give accessible color combinations',
 	'Realized pretty early on that best case scenario Yarn would be a poor version of wix and ceased development',
 ]

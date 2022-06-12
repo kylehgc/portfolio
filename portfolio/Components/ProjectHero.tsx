@@ -6,7 +6,6 @@ import {
 	VStack,
 	Container,
 	Tag,
-	HStack,
 } from '@chakra-ui/react'
 import { heroContent } from '../Data/content'
 import Image from 'next/image'

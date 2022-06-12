@@ -39,6 +39,7 @@
     "react-responsive-carousel": "^3.2.23",
     "react-slick": "^0.29.0",
     "react-svg-morph": "^0.2.1",
+    "sharp": "^0.30.6",
     "slick-carousel": "^1.8.1",
     "svg-text-to-vector": "^1.0.1",
     "ua-parser-js": "^1.0.2",
