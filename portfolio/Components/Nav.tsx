@@ -39,21 +39,23 @@ const Nav: React.FC = () => {
 	const overlayRef = useRef<HTMLDivElement>(null)
 	const isMobile = useBreakpointValue({ base: true, md: false })
 	const { secondary } = useThemeColors()
-	const { isOpen, onToggle } = useDisclosure({ defaultIsOpen: true })
+	const { isOpen, onToggle, onClose, onOpen } = useDisclosure({
+		defaultIsOpen: true,
+	})
 	const [oldYPosition, setOldYposition] = useState<number>(0)
 
 	const onScroll = useCallback(() => {
 		if (scrollY > oldYPosition) {
 			if (isOpen) {
-				onToggle()
+				onClose()
 			}
 		} else {
 			if (!isOpen) {
-				onToggle()
+				onOpen()
 			}
 		}
 		setOldYposition(scrollY)
-	}, [isOpen, oldYPosition, onToggle])
+	}, [isOpen, oldYPosition, onClose, onOpen])
 
 	useEffect(() => {
 		if (drawerIsOpen && overlayRef.current) {

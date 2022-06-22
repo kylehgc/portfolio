@@ -32,6 +32,7 @@ const InViewTransition: React.FC<Props> = ({
 	return (
 		<>
 			<SlideFade
+				animate
 				initial={{ opacity: 0 }}
 				offsetY={top ? '-40px' : '40px'}
 				transition={{ enter: { duration: 0.3, delay, opacity } }}
